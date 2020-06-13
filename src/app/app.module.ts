@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -20,6 +21,7 @@ import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
 
 import{ Routes, RouterModule  } from '@angular/router'
 
@@ -47,12 +49,15 @@ const appRoutes:Routes =[
     MatCardModule,
     MatMenuModule,
     MatIconModule,
+    MatInputModule,
     MatButtonModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
     MatTableModule,
+    FormsModule, 
+    ReactiveFormsModule,
     MatPaginatorModule,
     MatSortModule,
     RouterModule.forRoot(appRoutes)

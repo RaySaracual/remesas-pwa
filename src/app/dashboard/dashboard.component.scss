@@ -18,4 +18,40 @@
 
 .dashboard-card-content {
   text-align: center;
+  display: flex;
+}
+
+
+
+.day_rate{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  h2{
+    font-size: 32px;
+    width: 100%;
+    margin-top: 14%;
+    padding: 2%;
+    text-decoration: underline;
+  } 
+
+
+  footer{
+
+
+   position: absolute;
+   bottom: 0;
+    width: 100%;
+    padding: 2%;
+
+     p{
+
+      span{
+         font-weight: bold;
+      }
+     }
+
+  }
 }

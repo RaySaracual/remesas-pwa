@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'remesas';
+  title = 'Remesas';
+
+
+  installEvent=null;
+
+  
+@HostListener('window:beforeinstallprompt', ['$event'])
+onBeforeinstallPrompt(event:Event){
+  console.log(event);
+
+  event.preventDefault();
+
+  this.installEvent = event;
+}
+
+installByUser(){
+
+  if( this.installEvent){
+
+    this.installEvent.prompt();
+    this.installEvent.userChoice
+    .then( rta => {
+
+      console.log(rta);
+    });
+  }
+
+}
+
+
 }

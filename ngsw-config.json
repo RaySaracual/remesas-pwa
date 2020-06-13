@@ -25,5 +25,19 @@
         ]
       }
     }
+  ], 
+
+  "dataGroups": [
+   {
+     "name": "api",
+      "urls": ["https://fonts.googleapis.com/**"],
+      "cacheConfig": {
+        "maxSize": 3,
+        "maxAge": "1h",
+        "strategy":"freshness",
+        "timeout": "2s"
+      }
+   }
+
   ]
 }
