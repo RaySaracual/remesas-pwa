@@ -22,16 +22,16 @@ export class DashboardComponent implements OnInit{
       if (matches) {
         return [
           // { id:1,title: 'Card 1', cols: 1, rows: 1 },
-          { id:1,title: 'Tasa del dia', cols: 1, rows: 1 },
-          { id:2,title: 'Cuentas de Operaciones', cols: 1, rows: 1 },
-          { id:3,title: 'Estadisticas', cols: 1, rows: 1 }
+          { id:1,title: 'Tasa del dia', cols: 2, rows: 1 },
+          { id:2,title: 'Cuentas de Operaciones', cols: 2, rows: 1 },
+          { id:3,title: 'Estadisticas', cols: 2, rows: 1 }
         ];
       }
 
       return [
         // { id:1,title: 'Card 1', cols: 2, rows: 1 },
-        { id:1,title: 'Tasa del dia', cols: 1, rows: 1 },
-        { id:2,title: 'Cuentas de Operaciones', cols: 1, rows: 2 },
+        { id:1,title: 'Tasa del dia', cols: 2, rows: 1 },
+        { id:2,title: 'Cuentas de Operaciones', cols: 1, rows: 1 },
         { id:3,title: 'Estadisticas', cols: 1, rows: 1 }
       ];
     })
@@ -55,19 +55,6 @@ ngOnInit(){
 get dayRateNoValido() {
   return this.form.get('dayRate').invalid && this.form.get('dayRate').touched
 }
-
-  // get correoNoValido() {
-  //   return this.forma.get('correo').invalid && this.forma.get('correo').touched
-  // }
-
-  // get usuarioNoValido() {
-  //   return this.forma.get('usuario').invalid && this.forma.get('usuario').touched
-  // }
-
-  // get distritoNoValido() {
-  //   return this.forma.get('direccion.distrito').invalid && this.forma.get('direccion.distrito').touched
-  // }
-
 
   
   createForm() {

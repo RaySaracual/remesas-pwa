@@ -22,8 +22,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
-import{ Routes, RouterModule  } from '@angular/router'
+import{ Routes, RouterModule  } from '@angular/router';
+import { NewRegistreComponent } from './table/new-registre/new-registre.component'
 
 
 
@@ -39,7 +42,8 @@ const appRoutes:Routes =[
     AppComponent,
     DashboardComponent,
     NavComponent,
-    TableComponent
+    TableComponent,
+    NewRegistreComponent
   ],
   imports: [
     BrowserModule,
@@ -57,8 +61,10 @@ const appRoutes:Routes =[
     MatListModule,
     MatTableModule,
     FormsModule, 
+    MatSelectModule,
     ReactiveFormsModule,
     MatPaginatorModule,
+    MatDialogModule,
     MatSortModule,
     RouterModule.forRoot(appRoutes)
   ],

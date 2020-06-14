@@ -29,12 +29,8 @@
 
 
           <div class="day_rate" *ngIf="card.id ==1">
-
-
-            <form autocomplete="off" [formGroup]="form" (ngSubmit)="saveDayRate()">
-
+            <form autocomplete="off" [formGroup]="form">
             <h2> {{form.value.dayRate | number:'1.2-2'}}</h2>
-
                <mat-form-field *ngIf="activeEditDayRate">
                  <input matInput placeholder="Tasa del dia" 
                  formControlName="dayRate"

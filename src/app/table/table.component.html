@@ -1,15 +1,79 @@
 <div class="mat-elevation-z8">
-  <table mat-table class="full-width-table" matSort aria-label="Elements">
-    <!-- Id Column -->
+
+  <mat-toolbar>
+    <button mat-raised-button (click)="newRegistre()">Nuevo registro</button>
+
+  </mat-toolbar>
+
+  
+  <table mat-table  class="full-width-table" matSort aria-label="Elements">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
       <td mat-cell *matCellDef="let row">{{row.id}}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    <ng-container matColumnDef="client">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</th>
+      <td mat-cell *matCellDef="let row">{{row.client}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="paymentType">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo de Pago</th>
+      <td mat-cell *matCellDef="let row">{{row.paymentType}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="paymentNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Numero de Pago</th>
+      <td mat-cell *matCellDef="let row">{{row.paymentNumber}}</td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="homeBank">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Banco Origen </th>
+      <td mat-cell *matCellDef="let row">{{row.homeBank}}</td>
+    </ng-container>
+
+      
+    <ng-container matColumnDef="totalReceived">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Recibido</th>
+      <td mat-cell *matCellDef="let row">{{row.totalReceived}}</td>
+    </ng-container>
+
+       
+    <ng-container matColumnDef="rateOfTheDay">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tasa del dia</th>
+      <td mat-cell *matCellDef="let row">{{row.rateOfTheDay}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="destinationAccount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cuenta de Destino</th>
+      <td mat-cell *matCellDef="let row">{{row.destinationAccount}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="bankToSend">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Banco de Destino</th>
+      <td mat-cell *matCellDef="let row">{{row.bankToSend}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalToSend">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Envio</th>
+      <td mat-cell *matCellDef="let row">{{row.totalToSend}}</td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="titleNameToSend">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Titular Cuenta Envio</th>
+      <td mat-cell *matCellDef="let row">{{row.titleNameToSend}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="numberDocument">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Banco de envio</th>
+      <td mat-cell *matCellDef="let row">{{row.numberDocument}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</th>
+      <td mat-cell *matCellDef="let row">{{row.status}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -17,9 +81,10 @@
   </table>
 
   <mat-paginator #paginator
-      [length]="dataSource?.data.length"
-      [pageIndex]="0"
-      [pageSize]="10"
-      [pageSizeOptions]="[10, 20]">
-  </mat-paginator>
+  [length]="dataSource?.data.length"
+  [pageIndex]="0"
+  [pageSize]="10"
+  [pageSizeOptions]="[10, 20]">
+</mat-paginator>
+
 </div>
