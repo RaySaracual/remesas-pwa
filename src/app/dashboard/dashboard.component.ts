@@ -12,7 +12,7 @@ import { Validators, FormGroup,FormBuilder } from '@angular/forms';
 export class DashboardComponent implements OnInit{
 
 
-  dayRate=3000;
+  dayRate=0;
   form: FormGroup;
 
 
@@ -59,7 +59,7 @@ get dayRateNoValido() {
   
   createForm() {
     this.form = this.fb.group({
-      dayRate  : [0, [ Validators.required, Validators.minLength(3), Validators.maxLength(8) ]  ]
+      dayRate  : [, [ Validators.required, Validators.minLength(3), Validators.maxLength(8) ]  ]
   })
 
 }
@@ -80,7 +80,6 @@ editDayRate(){
 }
 
 saveDayRate(){
-console.log(this.form.value);
 localStorage.setItem('dayRate', this.form.value.dayRate);
 this.activeEditDayRate=false;
 

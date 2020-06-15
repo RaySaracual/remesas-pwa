@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -10,6 +10,10 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class NavComponent {
 
+  
+  installEvent=null;
+
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -17,5 +21,27 @@ export class NavComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  
+  @HostListener('window:beforeinstallprompt', ['$event'])
+  onBeforeinstallPrompt(event:Event){
+    console.log(event);
+  
+    event.preventDefault();
+  
+    this.installEvent = event;
+  }
+  
+  installByUser(){
+  
+    if(this.installEvent){
+      this.installEvent.prompt();
+      this.installEvent.userChoice
+      .then(rta => {
+        console.log(rta);
+      });
+    }
+  
+  }
 
 }

@@ -24,15 +24,23 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+
+// import {  AngularFireModule } from '@angular/fire'
+// import {  AngularFireMessagingModule } from '@angular/fire/messaging'
+// import {  AngularFirestoreModule } from '@angular/fire/firestore'
 
 import{ Routes, RouterModule  } from '@angular/router';
-import { NewRegistreComponent } from './table/new-registre/new-registre.component'
+import { NewRegistreComponent } from './table/new-registre/new-registre.component';
+import { VerifyPaymentComponent } from './verify-payment/verify-payment.component';
+import { RemittancesComponent } from './remittances/remittances.component'
 
 
 
 const appRoutes:Routes =[
   {path:'', component:DashboardComponent},
-  {path:'table', component:TableComponent}
+  {path:'remesas', component:RemittancesComponent},
+  {path:'verificar', component:VerifyPaymentComponent},
 
 
 ]
@@ -43,7 +51,9 @@ const appRoutes:Routes =[
     DashboardComponent,
     NavComponent,
     TableComponent,
-    NewRegistreComponent
+    NewRegistreComponent,
+    VerifyPaymentComponent,
+    RemittancesComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +76,11 @@ const appRoutes:Routes =[
     MatPaginatorModule,
     MatDialogModule,
     MatSortModule,
-    RouterModule.forRoot(appRoutes)
+    MatChipsModule,
+    RouterModule.forRoot(appRoutes),
+    // AngularFireModule,
+    // AngularFireMessagingModule ,
+    // AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

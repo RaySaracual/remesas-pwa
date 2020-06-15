@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>  La tasa actual es 300000 </h2>
+<h2 mat-dialog-title>  La tasa actual es {{dayOfTheRate | number:'1.2-2'}} </h2>
 <div mat-dialog-content>
 
 
@@ -111,5 +111,5 @@
 </div>
 <div mat-dialog-actions align="end">
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="form.controls" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="form.controls" [disabled]="form.invalid" cdkFocusInitial>Ok</button>
 </div>

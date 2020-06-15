@@ -1,39 +1,74 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SwUpdate} from '@angular/service-worker'
+// import { AngularFireMessaging } from '@angular/fire/messaging';
+// import {  AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore'
+
+
+interface Token {
+  token: string;
+}
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Remesas';
 
+  // private tokenCollection: AngularFirestoreCollection<Token>
 
-  installEvent=null;
+constructor( private swUpdate: SwUpdate, 
+            //  private messaging: AngularFireMessaging,
+            //  private database: AngularFirestore
+              ){
 
-  
-@HostListener('window:beforeinstallprompt', ['$event'])
-onBeforeinstallPrompt(event:Event){
-  console.log(event);
+                // this.tokenCollection =this.database.collection<Token>('tokens');
 
-  event.preventDefault();
 
-  this.installEvent = event;
-}
 
-installByUser(){
 
-  if( this.installEvent){
+              }
 
-    this.installEvent.prompt();
-    this.installEvent.userChoice
-    .then( rta => {
 
-      console.log(rta);
-    });
-  }
+ngOnInit(){
+
+  this.updatePWA();
+  // this.requestPermission();
+  // this.listenNotifications();
 
 }
+
+updatePWA(){
+
+  this.swUpdate.available
+  .subscribe(value=>{
+    console.log('update',value);
+    window.location.reload();
+  })
+}
+
+// requestPermission(){
+
+//   this.messaging.requestToken
+//   .subscribe(token =>{
+//     console.log(token)
+
+//     this.tokenCollection.add({token});
+//   })
+
+// }
+
+
+// listenNotifications(){
+
+//   this.messaging.messages
+//   .subscribe(msg =>{
+//     console.log(msg);
+
+//   })
+// }
 
 
 }

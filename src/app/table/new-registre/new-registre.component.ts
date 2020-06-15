@@ -12,8 +12,8 @@ export class NewRegistreComponent implements OnInit {
   form: FormGroup
 
   listPaymentType:any[] = [
-    {id: 1, description: 'Transferencia'},
-    {id: 2, description: 'Efectivo'},
+    {id: 1, description: 'Tránsferencia'},
+    {id: 2, description: 'Eféctivo'},
   ];
 
 
@@ -34,15 +34,16 @@ export class NewRegistreComponent implements OnInit {
     {id: 1, description: 'Cédula'},
     {id: 2, description: 'Pasaporte'},
   ];
-  dayOfTheRate: number;
+  dayOfTheRate=0;
 
   constructor(public dialogRef: MatDialogRef<NewRegistreComponent>,
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(){
-    this.dayOfTheRate =  parseInt(localStorage.getItem('dayRate'))
-    this.createForm()
+    this.dayOfTheRate =   localStorage.getItem('dayRate') ? parseInt(localStorage.getItem('dayRate')) : 0 ; 
+    this.createForm();
+
   }
 
   onNoClick() {
@@ -54,21 +55,21 @@ export class NewRegistreComponent implements OnInit {
     this.form = this.fb.group({
 
       // Origen
-      client  : ["", [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
-      paymentType  : [this.listPaymentType[0].id, [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
+      client  : ["", [ Validators.required, Validators.minLength(3) ]  ],
+      paymentType  : [this.listPaymentType[0].id, [ Validators.required ]  ],
       paymentNumber  : ['', [ Validators.required ]  ],
-      homeBank : [this.listHomeBank[0].id, [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
-      totalReceived  : [0, [ Validators.required, Validators.maxLength(20) ]  ],
+      homeBank : [this.listHomeBank[0].id, [ Validators.required ]  ],
+      totalReceived  : [0, [ Validators.required]  ],
 
      // Valores de configuracion usuario
-      rateOfTheDay  : [this.dayOfTheRate, [ Validators.required, Validators.maxLength(2) ]  ],
+      rateOfTheDay  : [this.dayOfTheRate, [ Validators.required ]  ],
      
      // Destino
       titleNameToSend  : [, [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
-      bankToSend  : [this.listBankToSend[0].id, [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
-      destinationAccount  : [, [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
-      numberDocument  : [, [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
-      totalToSend  : [{value:0,disabled:true},  [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
+      bankToSend  : [this.listBankToSend[0].id, [ Validators.required ]  ],
+      destinationAccount  : [, [ Validators.required, Validators.minLength(3) ]  ],
+      numberDocument  : [, [ Validators.required, Validators.minLength(8) ]  ],
+      totalToSend  : [{value:0,disabled:true},  [ Validators.required ]  ],
       // documentType  : [this.documentType[0].id, [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
   })
 

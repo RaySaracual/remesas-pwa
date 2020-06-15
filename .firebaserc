@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "remesas-app"
+  },
+  "targets": {
+    "remesas-app": {
+      "hosting": {
+        "remesas": [
+          "remesas-app"
+        ]
+      }
+    }
   }
 }

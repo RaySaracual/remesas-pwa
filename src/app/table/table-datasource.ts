@@ -63,11 +63,17 @@ export class TableDataSource extends DataSource<any> {
   
 saveData(item:Remesa){
    DATA.push(item);
-
    this.data = DATA;
-
-  this.getPagedData(this.getSortedData([...this.data]))
+  //this.getPagedData(this.getSortedData([...this.data]))
 }
+
+
+updateData(update:Remesa){
+  DATA[update.id-1]= update; 
+  this.data = DATA;
+ //this.getPagedData(this.getSortedData([...this.data]))
+}
+
 
 
 getNewData(){

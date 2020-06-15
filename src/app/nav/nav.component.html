@@ -6,7 +6,8 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/">Dashboard</a>
-      <a mat-list-item routerLink="/table">Table</a>
+      <a mat-list-item routerLink="/remesas">Remesas</a>
+      <a mat-list-item routerLink="/verificar">Verificar</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content >
@@ -20,6 +21,14 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Remesas App</span>
+
+  
+      <div style="margin-left: 2em;"> 
+        <button mat-raised-button color="primary" (click)="installByUser()" *ngIf="installEvent" >Instalar App</button>
+      </div>
+
+
+
     </mat-toolbar>
 
     <ng-content>
