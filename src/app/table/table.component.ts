@@ -7,6 +7,7 @@ import { NewRegistreComponent } from './new-registre/new-registre.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Remesa } from './remesa.model';
 import { HomeBank, BankToSend, PaymentType, Status } from './enum';
+import { RecordShipmentsComponent } from '../record-shipments/record-shipments.component';
 
 
 
@@ -23,6 +24,7 @@ export class TableComponent implements AfterViewInit, OnInit {
 
   @Input() typeView: number;
   @Input() displayedColumns: number;
+  editRowData: any;
 
   constructor(public dialog: MatDialog) { }
 
@@ -39,6 +41,46 @@ export class TableComponent implements AfterViewInit, OnInit {
   newRegistre() {
     const dialogRef = this.dialog.open(NewRegistreComponent, {
       width: '600px',
+      data: this.editRowData
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+
+      if (!result) {
+        return;
+      }
+
+
+
+      const remesa = this.parsetRemesaData(result);
+      
+      if(!result.id.value){
+      this.dataSource.saveData(remesa);
+      }
+
+      if(result.id.value){
+        this.dataSource.updateData(remesa);
+        }
+
+      
+
+
+      this.dataSource = new TableDataSource();
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      this.table.dataSource = this.dataSource;
+    });
+  }
+
+  editRow(row) {
+    console.log(row)
+    this.editRowData = row;
+    this.newRegistre()
+  }
+
+  registerTransfer(row) {
+    const dialogRef = this.dialog.open(RecordShipmentsComponent , {
+      width: '600px',
       data: {}
     });
 
@@ -48,30 +90,22 @@ export class TableComponent implements AfterViewInit, OnInit {
         return;
       }
 
-      const remesa = this.parsetRemesaData(result);
-
-      this.dataSource.saveData(remesa);
-      this.dataSource = new TableDataSource();
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-      this.table.dataSource = this.dataSource;
     });
-  }
 
-  editRow(row) {
 
-    console.log(row)
 
-  }
-
-  registerTransfer(row) {
   }
 
   parsetRemesaData(data) {
     let remesa: Remesa;
+    let id= this.dataSource.data.length + 1
+
+    if(data.id.value){
+      id = data.id.value;
+    }
 
     return remesa = {
-      id: this.dataSource.data.length + 1,
+      id: id ,
       client: data.client.value,
       paymentType: data.paymentType.value,  // si es efectivo genera un codigo correlativo
       paymentNumber: data.paymentNumber.value,

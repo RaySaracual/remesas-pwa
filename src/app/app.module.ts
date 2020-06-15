@@ -33,7 +33,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import{ Routes, RouterModule  } from '@angular/router';
 import { NewRegistreComponent } from './table/new-registre/new-registre.component';
 import { VerifyPaymentComponent } from './verify-payment/verify-payment.component';
-import { RemittancesComponent } from './remittances/remittances.component'
+import { RemittancesComponent } from './remittances/remittances.component';
+import { RecordShipmentsComponent } from './record-shipments/record-shipments.component'
 
 
 
@@ -53,7 +54,8 @@ const appRoutes:Routes =[
     TableComponent,
     NewRegistreComponent,
     VerifyPaymentComponent,
-    RemittancesComponent
+    RemittancesComponent,
+    RecordShipmentsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Remesa } from '../remesa.model';
 
 @Component({
   selector: 'app-new-registre',
@@ -38,23 +39,25 @@ export class NewRegistreComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<NewRegistreComponent>,
     private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: Remesa) { }
 
   ngOnInit(){
     this.dayOfTheRate =   localStorage.getItem('dayRate') ? parseInt(localStorage.getItem('dayRate')) : 0 ; 
     this.createForm();
-
+    if(this.data){
+      this.loadDataForm()
+    }
   }
 
   onNoClick() {
     this.dialogRef.close();
   }
 
-
   createForm() {
     this.form = this.fb.group({
 
       // Origen
+      id  : [],
       client  : ["", [ Validators.required, Validators.minLength(3) ]  ],
       paymentType  : [this.listPaymentType[0].id, [ Validators.required ]  ],
       paymentNumber  : ['', [ Validators.required ]  ],
@@ -78,8 +81,26 @@ export class NewRegistreComponent implements OnInit {
 
 loadDataForm() {
   this.form.reset({
-    dayRate: '',
+    id: this.data.id,
+    client  :this.data.client,
+    paymentType  : this.listPaymentType[this.listPaymentType.findIndex( data=>data.id === this.data.paymentType)].id ,
+    paymentNumber  : this.data.paymentNumber,
+    homeBank : this.listHomeBank[this.listHomeBank.findIndex( data=>data.id == this.data.homeBank)].id ,
+    totalReceived  : this.data.totalReceived,
+
+   // Valores de configuracion usuario
+    rateOfTheDay  : this.dayOfTheRate,
+   
+   // Destino
+    titleNameToSend  : this.data.titleNameToSend,
+    bankToSend  : this.data.bankToSend,
+    destinationAccount  : this.data.destinationAccount,
+    numberDocument  : this.data.numberDocument,
+    totalToSend  : this.data.totalToSend,
   });
+
+
+
 
 }
 

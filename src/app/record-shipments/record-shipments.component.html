@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>  La tasa actual es </h2>
+<div mat-dialog-content>
+
+
+  <form autocomplete="off" [formGroup]="form" >
+
+   
+
+  </form>
+ 
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="form.controls" [disabled]="form.invalid" cdkFocusInitial>Ok</button>
+</div>
