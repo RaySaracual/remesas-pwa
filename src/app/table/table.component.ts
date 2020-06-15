@@ -45,6 +45,7 @@ export class TableComponent implements AfterViewInit, OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      this.editRowData = ''
 
       if (!result) {
         return;
@@ -73,7 +74,6 @@ export class TableComponent implements AfterViewInit, OnInit {
   }
 
   editRow(row) {
-    console.log(row)
     this.editRowData = row;
     this.newRegistre()
   }
