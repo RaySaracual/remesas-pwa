@@ -51,8 +51,6 @@ export class TableComponent implements AfterViewInit, OnInit {
         return;
       }
 
-
-
       const remesa = this.parsetRemesaData(result);
       
       if(!result.id.value){
@@ -62,9 +60,6 @@ export class TableComponent implements AfterViewInit, OnInit {
       if(result.id.value){
         this.dataSource.updateData(remesa);
         }
-
-      
-
 
       this.dataSource = new TableDataSource();
       this.dataSource.sort = this.sort;
@@ -78,23 +73,7 @@ export class TableComponent implements AfterViewInit, OnInit {
     this.newRegistre()
   }
 
-  registerTransfer(row) {
-    const dialogRef = this.dialog.open(RecordShipmentsComponent , {
-      width: '600px',
-      data: {}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-
-      if (!result) {
-        return;
-      }
-
-    });
-
-
-
-  }
+ 
 
   parsetRemesaData(data) {
     let remesa: Remesa;
@@ -158,14 +137,11 @@ export class TableComponent implements AfterViewInit, OnInit {
   }
 
   sendForObservation(row) {
-
     let info = [row]
-
     let update = info.map((data) => {
       data.status = 3
       return data;
     })
-
     this.dataSource.updateData(update[0]);
     this.dataSource = new TableDataSource();
     this.dataSource.sort = this.sort;
@@ -173,6 +149,24 @@ export class TableComponent implements AfterViewInit, OnInit {
     this.table.dataSource = this.dataSource;
 
   }
+
+
+  registerTransfer(row) {
+    console.log(row);
+    let info = [row]
+    let update = info.map((data) => {
+      data.status = 4
+      return data;
+    })
+    this.dataSource.updateData(update[0]);
+    this.dataSource = new TableDataSource();
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.table.dataSource = this.dataSource;
+    
+      }
+
+  
 
 
 

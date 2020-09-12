@@ -89,6 +89,12 @@
           <mat-chip *ngIf="row.status ===3" selected color="warn">
             {{getStatus(row.status)}}
           </mat-chip>
+
+          <mat-chip *ngIf="row.status ===4" selected color="succes">
+            {{getStatus(row.status)}}
+          </mat-chip>
+
+          
         </mat-chip-list>
 
       </td>
