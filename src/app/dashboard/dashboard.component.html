@@ -11,16 +11,15 @@
               <mat-icon>create</mat-icon>
             </button>
 
-            <button *ngIf="card.id ==1 && activeEditDayRate" mat-icon-button class="more-button" (click)="saveDayRate()" >
+            <button *ngIf="card.id !=1 && activeEditDayRate" mat-icon-button class="more-button" (click)="saveDayRate()" >
               <mat-icon>done</mat-icon>
             </button>
 
-            <button  *ngIf="card.id !=1" mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <button  *ngIf="card.id ==3" mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Editar</button>
-              <!-- <button mat-menu-item>Crear</button> -->
+              <button mat-menu-item (click)="randomize()"> Actualizar </button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
@@ -62,6 +61,26 @@
           <div *ngIf="card.id ==2">
 
             <p> Agregar, editar , eliminar cuentas de la empresa de donde se haran las transferencia y donde llegaran</p>
+
+
+          </div>
+
+
+
+          <div *ngIf="card.id ===3"> 
+
+            <div style="margin: auto 0">
+                <div style="display: block;">
+                  <canvas baseChart width="540px"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [plugins]="barChartPlugins"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                  </canvas>
+                </div>
+            </div>
 
 
           </div>

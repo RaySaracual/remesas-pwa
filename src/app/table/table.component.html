@@ -109,12 +109,11 @@
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu" xPosition="before">
-          <button mat-menu-item (click)="verifyPayment(row)" *ngIf="typeView==2">Verificar</button>
-          <button mat-menu-item (click)="editRow(row)" *ngIf="row.status != 2" >Editar</button>
-          <button mat-menu-item (click)="registerTransfer(row)" *ngIf="typeView==1 && row.status == 2">Registrar
-            Transferencia</button>
-          <button mat-menu-item (click)="sendForObservation(row)" *ngIf="typeView==1 && row.status == 2">Enviar a
-            Observación</button>
+          <button mat-menu-item (click)="verifyPayment(row)" *ngIf="typeView==2 && row.status == 1"> Aprobar </button>
+          <button mat-menu-item (click)="reversePayment(row)" *ngIf="typeView==2 && row.status == 2"> Reversar </button>
+          <button mat-menu-item (click)="editRow(row)" *ngIf="row.status === 1" > Editar </button>
+          <button mat-menu-item (click)="registerTransfer(row)" *ngIf="typeView==1 && row.status == 2"> Registrar Transferencia</button>
+          <button mat-menu-item (click)="sendForObservation(row)" *ngIf="row.status == 2"> Enviar a Observación </button>
         </mat-menu>
       </td>
     </ng-container>

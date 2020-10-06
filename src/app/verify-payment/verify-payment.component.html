@@ -1,1 +1,23 @@
+<div class="info__table"> 
 <app-table [displayedColumns] = "displayedColumns" typeView='2' > </app-table>
+</div>
+
+<div class="info__list"> 
+
+    <mat-list>
+        <div mat-subheader>Remesas</div>
+        <mat-list-item *ngFor="let folder of dataSource.data">
+          <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
+          <div mat-line>{{folder.id}}</div>
+          <div mat-line> {{folder.client}} </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <!-- <div mat-subheader>Notes</div> -->
+        <!-- <mat-list-item *ngFor="let note of notes">
+          <mat-icon mat-list-icon>note</mat-icon>
+          <div mat-line>{{note.name}}</div>
+          <div mat-line> {{note.updated | date}} </div>
+        </mat-list-item> -->
+      </mat-list>
+
+</div>

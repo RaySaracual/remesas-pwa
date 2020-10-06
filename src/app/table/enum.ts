@@ -24,7 +24,7 @@ export enum PaymentType {
 
 export enum Status {
     "Por Aprobar" = 1,
-     Verificada =  2,
+     Aprobada =  2,
     "En observacion" = 3,
      Pagada = 4
     

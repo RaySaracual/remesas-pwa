@@ -52,14 +52,14 @@ export class TableComponent implements AfterViewInit, OnInit {
       }
 
       const remesa = this.parsetRemesaData(result);
-      
-      if(!result.id.value){
-      this.dataSource.saveData(remesa);
+
+      if (!result.id.value) {
+        this.dataSource.saveData(remesa);
       }
 
-      if(result.id.value){
+      if (result.id.value) {
         this.dataSource.updateData(remesa);
-        }
+      }
 
       this.dataSource = new TableDataSource();
       this.dataSource.sort = this.sort;
@@ -73,18 +73,18 @@ export class TableComponent implements AfterViewInit, OnInit {
     this.newRegistre()
   }
 
- 
+
 
   parsetRemesaData(data) {
     let remesa: Remesa;
-    let id= this.dataSource.data.length + 1
+    let id = this.dataSource.data.length + 1
 
-    if(data.id.value){
+    if (data.id.value) {
       id = data.id.value;
     }
 
     return remesa = {
-      id: id ,
+      id: id,
       client: data.client.value,
       paymentType: data.paymentType.value,  // si es efectivo genera un codigo correlativo
       paymentNumber: data.paymentNumber.value,
@@ -100,9 +100,6 @@ export class TableComponent implements AfterViewInit, OnInit {
     }
 
   }
-
-
-
 
   getHomeBank(data) {
     return HomeBank[data];
@@ -121,9 +118,7 @@ export class TableComponent implements AfterViewInit, OnInit {
   }
 
   verifyPayment(row: Remesa) {
-
     let info = [row]
-
     let update = info.map((data) => {
       data.status = 2
       return data;
@@ -135,6 +130,25 @@ export class TableComponent implements AfterViewInit, OnInit {
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
+
+
+
+  reversePayment(row: Remesa) {
+    let info = [row]
+    let update = info.map((data) => {
+      data.status = 1
+      return data;
+    })
+
+    this.dataSource.updateData(update[0]);
+    this.dataSource = new TableDataSource();
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.table.dataSource = this.dataSource;
+  }
+
+
+
 
   sendForObservation(row) {
     let info = [row]
@@ -163,12 +177,6 @@ export class TableComponent implements AfterViewInit, OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
-    
-      }
 
-  
-
-
-
-
+  }
 }

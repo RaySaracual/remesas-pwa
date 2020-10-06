@@ -31,8 +31,6 @@ export class RecordShipmentsComponent implements OnInit {
       paymentNumber  : ['', [ Validators.required ]  ],
       totalReceived  : [0, [ Validators.required]  ],
 
-     // Valores de configuracion usuario
-     
      // Destino
       titleNameToSend  : [, [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ]  ],
       destinationAccount  : [, [ Validators.required, Validators.minLength(3) ]  ],

@@ -25,7 +25,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
-
+import { ChartsModule } from 'ng2-charts';
 // import {  AngularFireModule } from '@angular/fire'
 // import {  AngularFireMessagingModule } from '@angular/fire/messaging'
 // import {  AngularFirestoreModule } from '@angular/fire/firestore'
@@ -79,6 +79,7 @@ const appRoutes:Routes =[
     MatDialogModule,
     MatSortModule,
     MatChipsModule,
+    ChartsModule,
     RouterModule.forRoot(appRoutes),
     // AngularFireModule,
     // AngularFireMessagingModule ,

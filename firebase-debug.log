@@ -1,0 +1,17 @@
+[debug] [2020-09-23T14:11:42.598Z] ----------------------------------------------------------------------
+[debug] [2020-09-23T14:11:42.600Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Ray_S\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js open
+[debug] [2020-09-23T14:11:42.600Z] CLI Version:   8.4.2
+[debug] [2020-09-23T14:11:42.600Z] Platform:      win32
+[debug] [2020-09-23T14:11:42.600Z] Node Version:  v12.18.1
+[debug] [2020-09-23T14:11:42.601Z] Time:          Wed Sep 23 2020 10:11:42 GMT-0400 (Atlantic Standard Time)
+[debug] [2020-09-23T14:11:42.601Z] ----------------------------------------------------------------------
+[debug] [2020-09-23T14:11:42.601Z] 
+[debug] [2020-09-23T14:11:42.607Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-09-23T14:11:42.608Z] > authorizing via signed-in user
+[debug] [2020-09-23T14:11:42.609Z] [iam] checking project remesas-app for permissions ["firebase.projects.get"]
+[debug] [2020-09-23T14:11:42.611Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/remesas-app:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-09-23T14:11:42.861Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 23 Sep 2020 14:11:41 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=98","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-23T14:11:42.865Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/remesas-app  
+ 
+[debug] [2020-09-23T14:11:43.098Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 23 Sep 2020 14:11:41 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}

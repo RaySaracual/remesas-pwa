@@ -29,4 +29,16 @@ $remesas-theme: mat-light-theme($remesas-primary, $remesas-accent, $remesas-warn
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }  
+.info__list{display:none;}
+
+
+@media (max-width: 812px) {
+    .info__table{
+        display: none;
+    }
+
+    .info__list{
+        display: inline;
+    }
+  }
